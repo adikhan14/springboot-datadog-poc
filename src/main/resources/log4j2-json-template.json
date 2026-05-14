@@ -22,8 +22,17 @@
     "$resolver": "message",
     "stringified": true
   },
-  "mdc": {
-    "$resolver": "mdc"
+  "dd.trace_id": {
+    "$resolver": "mdc",
+    "key": "dd.trace_id"
+  },
+  "dd.span_id": {
+    "$resolver": "mdc",
+    "key": "dd.span_id"
+  },
+  "requestId": {
+    "$resolver": "mdc",
+    "key": "requestId"
   },
   "error": {
     "$resolver": "exception",

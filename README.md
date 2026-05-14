@@ -44,7 +44,6 @@ src/main/resources/
 ## Prerequisites
 
 - Java 17
-- Maven 3.8+
 - Docker Desktop
 - Datadog account + API key
 
@@ -55,7 +54,7 @@ src/main/resources/
 ### 1. Build
 
 ```bash
-mvn package -DskipTests
+./mvnw package -DskipTests
 ```
 
 ### 2. Download Datadog Java Agent
@@ -85,7 +84,7 @@ App starts on **http://localhost:8081**
 ### 1. Build the JAR
 
 ```bash
-mvn package -DskipTests
+./mvnw package -DskipTests
 ```
 
 ### 2. Download Datadog Java Agent
@@ -191,11 +190,9 @@ Every log line is a JSON object:
   "logger": "c.l.d.p.controller.BookmarkController",
   "thread": "http-nio-8081-exec-1",
   "message": "Created bookmark id=1",
-  "mdc": {
-    "requestId": "b3a1c2d4-...",
-    "dd.trace_id": "1234567890",
-    "dd.span_id": "9876543210"
-  },
+  "dd.trace_id": "1234567890",
+  "dd.span_id": "9876543210",
+  "requestId": "b3a1c2d4-...",
   "app": "springboot-datadog-poc"
 }
 ```
