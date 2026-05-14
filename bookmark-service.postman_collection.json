@@ -1,0 +1,96 @@
+{
+  "info": {
+    "name": "Bookmark Service",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "http://localhost:8081"
+    }
+  ],
+  "item": [
+    {
+      "name": "Get All Bookmarks",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/bookmarks",
+        "header": [
+          {
+            "key": "X-Request-Id",
+            "value": "{{$guid}}",
+            "description": "Optional: omit to let the service generate one"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Get Bookmark by ID",
+      "request": {
+        "method": "GET",
+        "url": "{{baseUrl}}/api/bookmarks/1",
+        "header": [
+          {
+            "key": "X-Request-Id",
+            "value": "{{$guid}}"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Create Bookmark",
+      "request": {
+        "method": "POST",
+        "url": "{{baseUrl}}/api/bookmarks",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Request-Id",
+            "value": "{{$guid}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Datadog Documentation\",\n  \"description\": \"Official Datadog docs for APM and log management\",\n  \"url\": \"https://docs.datadoghq.com\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Update Bookmark",
+      "request": {
+        "method": "PUT",
+        "url": "{{baseUrl}}/api/bookmarks/1",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "X-Request-Id",
+            "value": "{{$guid}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"title\": \"Datadog APM\",\n  \"description\": \"Updated description for Datadog APM tracing\",\n  \"url\": \"https://docs.datadoghq.com/tracing\"\n}"
+        }
+      }
+    },
+    {
+      "name": "Delete Bookmark",
+      "request": {
+        "method": "DELETE",
+        "url": "{{baseUrl}}/api/bookmarks/1",
+        "header": [
+          {
+            "key": "X-Request-Id",
+            "value": "{{$guid}}"
+          }
+        ]
+      }
+    }
+  ]
+}
